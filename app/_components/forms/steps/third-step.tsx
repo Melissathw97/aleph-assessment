@@ -10,7 +10,7 @@ import { useFormContext } from "@/app/_providers/form";
 
 const FormThirdStep = () => {
 
-    const { formDetails, onStepThreeBack, onStepThreeSubmit } = useFormContext();
+    const { formDetails, onStepThreeBack, onStepThreeSubmit, resetForm } = useFormContext();
 
     const router = useRouter();
     const [language, setLanguage] = useState<string>("en");
@@ -29,7 +29,10 @@ const FormThirdStep = () => {
     const onFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         onStepThreeSubmit({ language })
-            .then(() => router.push(`/${language}/dashboard`));
+            .then(() => {
+                router.push(`/${language}/dashboard`);
+                setTimeout(() => resetForm(), 1000);
+            });
     };
 
     return (

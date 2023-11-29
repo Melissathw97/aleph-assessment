@@ -19,7 +19,8 @@ type IFormContext = {
     onStepTwoBack: ({ age, phoneNumber }: { age: number; phoneNumber: string; }) => void;
     onStepTwoSubmit: ({ age, phoneNumber }: { age: number; phoneNumber: string; }) => void;
     onStepThreeBack: ({ language }: { language: string }) => void;
-    onStepThreeSubmit: ({ language }: { language: string }) => Promise<void>;
+    onStepThreeSubmit: ({ language }: { language: string }) => Promise<Response>;
+    resetForm: () => void;
 };
 
 const initialState = {
@@ -30,6 +31,7 @@ const initialState = {
     onStepTwoSubmit: () => {},
     onStepThreeBack: () => {},
     onStepThreeSubmit: () => new Promise<any>((resolve) => resolve({ json: () => JSON.stringify({}) })),
+    resetForm: () => {},
 }
 
 const FormContext = createContext<IFormContext>(initialState);
@@ -78,17 +80,18 @@ export const FormProvider: React.FC<Props> = ({ children }) => {
             },
             body: JSON.stringify({ ...formDetails }),
         })
-            .then(() => {
-                setFormDetails({ name: "", email: "", age: 0, phoneNumber: "", language: "en" })
-                setFormStep(1);
-            })
     };
+
+    const resetForm = () => {
+        setFormDetails({ name: "", email: "", age: 0, phoneNumber: "", language: "en" })
+        setFormStep(1);
+    }
 
     return (
         <FormContext.Provider value={{
             formStep, formDetails, onStepOneSubmit,
             onStepTwoBack, onStepTwoSubmit,
-            onStepThreeBack, onStepThreeSubmit
+            onStepThreeBack, onStepThreeSubmit, resetForm
         }}>
             {children}
         </FormContext.Provider>
