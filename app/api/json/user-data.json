@@ -1,0 +1,33 @@
+[
+    {
+        "name": "Cassandra Clarissa",
+        "age": 20,
+        "email": "cassandra.clare@gmail.com",
+        "phone_number": "0123728732",
+        "language": "en"
+    }, {
+        "name": "Lavender",
+        "age": 32,
+        "email": "lavender_lily@hotmail.com",
+        "phone_number": "013958473782",
+        "language": "ms"
+    }, {
+        "name": "Colin Firth",
+        "age": 43,
+        "email": "colin@uk.co",
+        "phone_number": "069273782",
+        "language": "en"
+    }, {
+        "name": "Lilly Pond",
+        "email": "lilly@pond.com",
+        "age": 20,
+        "phone_number": "0184982938",
+        "language": "en"
+    }, {
+        "name": "Guinevere",
+        "email": "gwinn@mail.co",
+        "age": 18,
+        "phone_number": "01758727649",
+        "language": "en"
+    }
+]
