@@ -70,7 +70,7 @@ export default function MobileHeader({ lng }: IProps) {
                 }
                 }}
                 style={{ pointerEvents: isOpen ? "auto" : "none" }}
-                className="md:hidden absolute top-0 left-0 z-50 bg-neutral-100 dark:bg-neutral-900 h-screen w-screen p-7 px-5"
+                className="md:hidden fixed top-0 left-0 z-50 bg-neutral-100 dark:bg-neutral-900 h-screen w-screen p-7 px-5"
             >
                 <motion.li variants={itemVariants}>
                     <div className="flex items-center gap-5 mb-8">
